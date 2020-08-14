@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgba(252, 229, 23, 0.822);
+}
+
+#display-text {
+    font-size: 20px;
+}
+
+#header {
+    font-size: 40px;
+}
+
+#display-field {
+    margin: 20px auto;
+    text-align: center;
+    background-color: white;
+    width: 33%;
+    border: 1px solid black;
+}
