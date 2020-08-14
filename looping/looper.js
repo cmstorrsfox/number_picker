@@ -8,6 +8,8 @@ const forButton = document.getElementById("for-button");
 const forLoopList = document.querySelector("ol");
 const forInButton = document.getElementById("for-in-button");
 const forInList = document.getElementById("for-in-list");
+const carList = document.getElementById("car-list");
+const numberList = document.getElementById("number-list");
 
 //Data to loop
 const forInput = document.getElementById("for-input"); //input field for FOR loop
@@ -15,6 +17,7 @@ const animals = [] //input for for...in loop
 const animalInput = document.getElementById("animal"); //animal input field for FOR...IN loop
 const behaviourInput = document.getElementById("behaviour"); //animal input field for FOR...IN loop
 const dietInput = document.getElementById("diet"); //animal input field for FOR...IN loop
+const cars = ["Volvo", "Jaguar", "Volkswagen", "Land Rover", "Honda"];
 
 
 
@@ -60,3 +63,25 @@ const animalLooper = () => {
 }
 
 forInButton.addEventListener("click", animalLooper);
+
+//For...of loop
+
+for (car of cars) {
+        carList.innerHTML += `<li>${car} is included in the array cars</li>`
+    }
+
+//While loop
+let i = 0 
+let green = 255;
+let blue = 0;
+
+while (i < 255) {
+    let li = document.createElement("li");
+    let textNode = document.createTextNode(`The text color is rgb(${i}, ${green-=1}, ${blue+=1})`);
+    li.appendChild(textNode);
+    numberList.appendChild(li);
+    li.style.color = `rgb(${i}, ${green-1}, ${blue+1})`;
+    i++
+}
+
+//Do...while loop

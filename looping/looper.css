@@ -16,6 +16,7 @@ body {
     border: 1px solid black;
     width: auto;
     height: auto;
+    background-color: lightcoral;
 }
 
 li {
