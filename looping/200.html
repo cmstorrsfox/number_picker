@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Looper</title>
+        <link rel="stylesheet" href="./looper.css" type="text/css">
+    </head>
+    <body>
+        <h1>Welcome to Looper</h1>
+
+        <h3>For Loop</h3>
+        <form>
+            <label for="for-input">Enter your name:</label>
+            <input id="for-input" type="text" name="for-input">
+            <button type="button" id="for-button">Click me!</button>
+        </form>
+        <div class="output-display" id="for-display">
+            <ol id="for-loop-list"></ol>
+        </div>
+
+        <h3>For...In Loop</h3>
+        <form id="for-in-form">
+            <label for="animal">Animal:</label>
+            <input id="animal" type="text" minlength="2">
+            <label for="behaviour">Behaviour:</label>
+            <select name="behaviour" id="behaviour">
+                <option value="chill">chill</option>
+                <option value="not chill">not chill</option>
+            </select>
+            <label for="diet">Diet:</label>
+            <select name="diet" id="diet">
+                <option value="fruits and/or vegetables">fruits and/or vegetables</option>
+                <option value="meat and/or fish">meat and/or fish</option>
+                <option value="anything and everything">anything and everything</option>
+            </select>
+            <button type="button" id="for-in-button">Click me!</button>
+        </form>
+        <div class="output-display" id="for-in-display">
+            <ul id="for-in-list"></ul>
+        </div>
+
+        <h3>For...Of Loop</h3>
+        <form id="shopping-list-form">
+            <label for="shopping-list-input">Enter your item here</label>
+            <input type="text" name="shopping-list-input" id="shopping-list-input">
+            <button type="button" id="add-to-list">add to list</button>
+            <button type="button" id="remove-from-list">remove from list</button>
+        </form>
+        <div class="output-display" id="for-of-display">
+            <ol id="shopping-list"></ol>
+        </div>
+
+        <h3>While Loop</h3>
+        <button type="button" id="color-button">Click me to see 100,000 colors</button>
+        <div class="output-display" id="while-display">
+            <ul id="number-list"></ul>
+        </div>
+
+        <script src="./looper.js" type="text/javascript"></script>
+    </body>
+</html>

@@ -8,9 +8,12 @@ const forButton = document.getElementById("for-button");
 const forLoopList = document.querySelector("ol");
 const forInButton = document.getElementById("for-in-button");
 const forInList = document.getElementById("for-in-list");
-const carList = document.getElementById("car-list");
+const shoppingListList = document.getElementById("shopping-list");
+const addToListButton = document.getElementById("add-to-list");
+const removeFromListButton = document.getElementById("remove-from-list");
 const numberList = document.getElementById("number-list");
 const whileTwoList = document.getElementById("while-2-list");
+const colorButton = document.getElementById("color-button");
 
 //Data to loop
 const forInput = document.getElementById("for-input"); //input field for FOR loop
@@ -18,7 +21,7 @@ const animals = [] //input for for...in loop
 const animalInput = document.getElementById("animal"); //animal input field for FOR...IN loop
 const behaviourInput = document.getElementById("behaviour"); //animal input field for FOR...IN loop
 const dietInput = document.getElementById("diet"); //animal input field for FOR...IN loop
-const cars = ["Volvo", "Jaguar", "Volkswagen", "Land Rover", "Honda"];
+const shoppingListInput = document.getElementById("shopping-list-input");
 
 
 
@@ -67,54 +70,71 @@ forInButton.addEventListener("click", animalLooper);
 
 //For...of loop
 
-for (car of cars) {
-        carList.innerHTML += `<li>${car} is included in the array cars</li>`
+const shoppingList = [];
+
+const addToList = (item) => {
+    event.preventDefault();
+    shoppingListList.innerHTML = "";
+
+
+    item = shoppingListInput.value;
+    shoppingList.push(item);
+    console.log(shoppingList);
+
+    for (item of shoppingList) {
+        shoppingListList.innerHTML += `<li>${item}</li>`
     }
+
+    shoppingListInput.value = "";
+};
+
+const removeFromList = (item) => {
+    event.preventDefault();
+    shoppingListList.innerHTML = "";
+
+    item = shoppingListInput.value;
+    itemToRemove = shoppingList.indexOf(item);
+    
+    if (itemToRemove === -1) {
+        alert("Item not found");
+    } else {
+        shoppingList.splice(itemToRemove, 1);
+    }
+
+    for (item of shoppingList) {
+        shoppingListList.innerHTML += `<li>${item}</li>`
+    }
+    shoppingListInput.value = "";
+};
+
+addToListButton.addEventListener("click", addToList);
+removeFromListButton.addEventListener("click", removeFromList);
+
+
 
 //While loop
-let i = 0 
+const colorExplosion = () => {
+    event.preventDefault();
 
-while (i < 100000) {
-    const red = Math.floor(Math.random()*255);
-    const green = Math.floor(Math.random()*255);
-    const blue = Math.floor(Math.random()*255);
+    let i = 0 
 
-    let li = document.createElement("li");
-    let textNode = document.createTextNode(`The background color is rgb(${red}, ${green}, ${blue})`);
-    li.appendChild(textNode);
-    numberList.appendChild(li);
-    li.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-    if (red < 50 || green < 50 || blue < 50) {
-        li.style.color = "white";
+    while (i <= 100000) {
+        const red = Math.floor(Math.random()*255);
+        const green = Math.floor(Math.random()*255);
+        const blue = Math.floor(Math.random()*255);
+        const alpha = Math.random().toFixed(1);
+
+        let li = document.createElement("li");
+        let textNode = document.createTextNode(`The background color is rgba(${red}, ${green}, ${blue}, ${alpha})`);
+        li.appendChild(textNode);
+        numberList.appendChild(li);
+        li.style.backgroundColor = `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+        if (alpha > 0.5 || red < 50 || green < 50 || blue < 50) {
+            li.style.color = "white";
+        }
+
+        i++
     }
+};
 
-    i++
-}
-
-//While 2 loop
-let j = 0;
-let colorArray = [];
-
-while(j < 100) {
-    const red = Math.floor(Math.random()*255);
-    const green = Math.floor(Math.random()*255);
-    const blue = Math.floor(Math.random()*255);
-
-    const newColor = {
-        red,
-        green,
-        blue,
-    }
-    colorArray.push(newColor);
-
-    j++
-}
-
-
-const colorMapper = () => {
-    let newArray = colorArray.map(color => `<li>The color is ${color.red}, ${color.green}, ${color.blue}</li>`);
-    whileTwoList.innerHTML = newArray.join('');
-
-}
-
-colorMapper();
+colorButton.addEventListener("click", colorExplosion);

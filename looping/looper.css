@@ -16,7 +16,7 @@ body {
     border: 1px solid black;
     width: auto;
     height: auto;
-    background-color: lightcoral;
+    background-color: whitesmoke;
 }
 
 li {
@@ -35,5 +35,10 @@ span {
     text-decoration: underline;
     text-decoration-style: dashed;
     text-decoration-color: magenta;
+}
+
+#shopping-list {
+    list-style-type: decimal;
+    list-style-position: inside;
 }
 
