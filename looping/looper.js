@@ -74,7 +74,7 @@ for (car of cars) {
 //While loop
 let i = 0 
 
-while (i < 100) {
+while (i < 100000) {
     const red = Math.floor(Math.random()*255);
     const green = Math.floor(Math.random()*255);
     const blue = Math.floor(Math.random()*255);
