@@ -3,13 +3,14 @@ const forDisplay = document.getElementById("for-display");
 const forInDisplay = document.getElementById("for-in-display");
 const forOfDisplay = document.getElementById("for-of-display");
 const whileDisplay = document.getElementById("while-display");
-const doWhileDisplay = document.getElementById("do-while-display");
+const whileTwoDisplay = document.getElementById("while-2-display");
 const forButton = document.getElementById("for-button");
 const forLoopList = document.querySelector("ol");
 const forInButton = document.getElementById("for-in-button");
 const forInList = document.getElementById("for-in-list");
 const carList = document.getElementById("car-list");
 const numberList = document.getElementById("number-list");
+const whileTwoList = document.getElementById("while-2-list");
 
 //Data to loop
 const forInput = document.getElementById("for-input"); //input field for FOR loop
@@ -72,16 +73,48 @@ for (car of cars) {
 
 //While loop
 let i = 0 
-let green = 255;
-let blue = 0;
 
-while (i < 255) {
+while (i < 100) {
+    const red = Math.floor(Math.random()*255);
+    const green = Math.floor(Math.random()*255);
+    const blue = Math.floor(Math.random()*255);
+
     let li = document.createElement("li");
-    let textNode = document.createTextNode(`The text color is rgb(${i}, ${green-=1}, ${blue+=1})`);
+    let textNode = document.createTextNode(`The background color is rgb(${red}, ${green}, ${blue})`);
     li.appendChild(textNode);
     numberList.appendChild(li);
-    li.style.color = `rgb(${i}, ${green-1}, ${blue+1})`;
+    li.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    if (red < 50 || green < 50 || blue < 50) {
+        li.style.color = "white";
+    }
+
     i++
 }
 
-//Do...while loop
+//While 2 loop
+let j = 0;
+let colorArray = [];
+
+while(j < 100) {
+    const red = Math.floor(Math.random()*255);
+    const green = Math.floor(Math.random()*255);
+    const blue = Math.floor(Math.random()*255);
+
+    const newColor = {
+        red,
+        green,
+        blue,
+    }
+    colorArray.push(newColor);
+
+    j++
+}
+
+
+const colorMapper = () => {
+    let newArray = colorArray.map(color => `<li>The color is ${color.red}, ${color.green}, ${color.blue}</li>`);
+    whileTwoList.innerHTML = newArray.join('');
+
+}
+
+colorMapper();
